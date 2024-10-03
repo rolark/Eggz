@@ -1,0 +1,37 @@
+ClrHome
+10->J
+73->W
+1->M
+1->R
+Lbl 1
+J-1->J
+W-1->W
+If W=1
+Then
+	prgmAAAMOVE
+End
+If J=1
+Then
+	10->J
+	Goto 2
+End
+Goto 1
+Lbl 2
+ClrHome
+Output(8,12,"EGGS")
+Output(M,R,"EEEE")
+Output(M+1,R,"E")
+Output(M+2,R,"EEE")
+Output(M+3,R,"E")
+Output(M+4,R,"EEEE")
+M+1->M
+R+1->R
+If R=8
+Then
+	1->R
+End
+If M=5
+Then
+	1->M
+End
+Goto 1
