@@ -1,0 +1,156 @@
+ClrHome
+"MENU"
+Lbl 4
+ClrHome
+Menu("WELCOME TO EGGS","PLAY",H,"KEYS",9,"ABOUT THE GAME",7,"QUIT EGGS",8)
+"ABOUT"
+Lbl 7
+ClrHome
+Output(1,7,"EGGS")
+Output(3,1,"EGGS IS A NEW ARCADE GAME MADE BY ROLAND OSBORNE. IT IS MY FIRST GAME SO DO NOT EXPECT MUCH")
+Pause 
+Goto 4
+Lbl 9
+ClrHome
+Output(1,1,"USE THE ARROW KEYS TO MOVE. PRESS ENTER TO QUIT"
+Pause 
+Goto 4
+Lbl H
+"SCORE"
+0->J
+"RESET COORDS"
+1->M
+5->N
+"TURNS"
+200->W
+"EGG PREFS"
+1->M
+"REFRESH"
+2->R
+"SPEED"
+1->S
+"EGG SPEED"
+1->theta
+"EGG SC"
+4->Q
+"COORDS"
+8->X
+8->Y
+Lbl 1
+W-1->W
+
+Output(Y,X," ")
+If R=0
+Then
+	2->R
+End
+getKey->K
+If K=105
+Then
+	Goto E
+End
+If K=83
+Then
+	ClrHome
+	Input "PASSWORD?",I
+End
+If I=951753
+Then
+	Goto 10
+End
+If K=24
+Then
+	X-S->X
+End
+If K=26
+Then
+	X+S->X
+End
+If K=25
+Then
+	Y-S->Y
+End
+If K=34
+Then
+	Y+S->Y
+End
+If X=17
+Then
+	X-S->X
+End
+If X=0
+Then
+	X+S->X
+End
+If Y=9
+Then
+	Y-S->Y
+End
+If Y=0
+Then
+	Y+S->Y
+End
+Output(Y,X,"U")
+"GAME"
+If W=0
+Then
+	Goto E
+End
+If Y=M and X=N
+Then
+	J+10->J
+End
+"EGGS"
+Lbl 2
+R-1->R
+If R=0
+Then:ClrHome
+	2->R
+End
+Q-1->Q
+If theta=3
+Then:Goto 89
+End
+If 0<=T<=100
+Then:3->theta:End
+If 100<T<=150
+Then:2->theta:End
+If 150<T<=200
+Then:1->theta:End
+
+
+
+Goto 58
+End
+Goto 89
+Lbl 58
+If M!=8
+Then
+	M+1->M
+Else
+	1->M
+	Goto 3
+End
+Lbl 89
+Output(M,N,"theta")
+Goto 1
+Lbl 3
+randInt(1,16)->N
+Goto 2
+"END"
+Lbl E
+ClrHome
+Output(4,2,"GAME OVER")
+Output(5,2,"SCORE:"
+Output(5,10,J)
+Pause 
+Goto 4
+Lbl 8
+ClrHome
+Stop
+Lbl 10
+ClrHome
+Input "SCORE:",J
+0->I
+ClrHome
+Goto 1
