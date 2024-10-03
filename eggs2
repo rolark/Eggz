@@ -1,0 +1,107 @@
+AxesOff
+If L!=5638:Then
+	5638->L:Goto 6
+Else:Goto 3:End
+Lbl 6
+2->E
+2->G
+ClrDraw
+For(E,2,69)
+	Text(G,E,"EGGS II")
+	Text(G,E-2,"  ")
+	If G<40:Then
+		G+1->G
+	End
+End
+For(E,2,33,2)
+	Text(G+6,E,"BY ROLAND OSBORNE")
+	Text(G+6,E-2,"  ")
+End
+For(E,1,40)
+	randInt(1,80)->U
+	randInt(1,35)->V
+	Text(V,U,"theta")
+End
+Pause 
+Lbl 9
+ClrDraw
+54->Z
+4->C
+10->T
+0->K
+50->A
+56->B
+1->S
+0->P
+54->H
+Lbl 1
+randInt(6,88)->X
+ClrDraw
+Text(1,1,P)
+Text(8,1,T)
+2->Y
+For(Y,2,56,S)
+	Text(Y,X,"theta")
+	Text(B,A,"U")
+	Text(B,A-3,"   ")
+	Text(B,A+4," ")
+	getKey->K
+	If K=24 and A>=6
+	Then
+		A-2->A
+	End
+	If K=26 and A<=88
+	Then
+		A+2->A
+	End
+	If K=105
+	Then
+		Pause 
+	End
+	If K=23:Then
+	Goto 2:End
+	If X-2<=A and A<=X+2 and Y>=Z-S
+	Then
+		P+S*10->P
+		520->Z
+	End
+End
+If not(X-2<=A and A<=X+2) and Y>=54-S
+Then
+	Text(55,X-1,"*")
+	T-1->T
+End
+If T<=0:Then
+Goto 2:End
+C-1->C
+If C=0:Then:8->C:S+1->S:End
+4->Z
+Goto 1
+Lbl 2
+ClrHome
+Output(4,5,"GAME OVER")
+Pause 
+ClrHome
+Output(4,5,"SCORE:")
+Output(4,11,P)
+Pause 
+If P>J
+Then:P->J:Input "YOUR NAME:",Str5:End
+Output(5,2,"HIGH SCORE:")
+Output(5,13,J)
+Output(6,3,Str5)
+Pause 
+Lbl 3
+Menu("EGGS II","PLAY EGGS",9,"ABOUT EGGS",4,"VIEW INTRO",6,"QUIT EGGS",5)
+Lbl 4
+ClrHome
+Output(4,2,"COPYRIGHT 1998")
+Output(5,2,"ROLAND OSBORNE")
+Pause 
+Goto 3
+Lbl 5
+ClrHome
+AxesOn
+Stop
+Lbl 10
+Menu("PAUSE","RESUME",11,"END GAME",2)
